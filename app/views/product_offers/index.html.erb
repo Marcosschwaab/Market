@@ -1,0 +1,27 @@
+
+<h3>Lista de Ofertas Cadastradas
+<%= link_to 'Cadastrar Produto', new_product_offer_path %>
+</h3> 
+
+
+<%- if current_user -%>
+
+
+  <%- current_user.product_offers.each do |product_offer| -%>
+
+  <div id="cada">
+<%= link_to product_offer.product.name, product_offer %></p>
+<%= link_to product_offer.product.description, product_offer %>
+	<p><class id="bg_preco">R$<%= product_offer.price %></class></p>
+<p>
+  <%= link_to image_tag('edit.png'), edit_product_offer_path(product_offer) %>
+<%= link_to image_tag('trash.png'), product_offer, :confirm => 'Deseja excluir este produto?', :method => :delete %>
+</p>
+</div>
+<% end %>
+
+
+<%- else -%>
+  <em>Not logged in</em>
+<%- end -%>
+

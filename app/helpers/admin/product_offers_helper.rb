@@ -1,0 +1,2 @@
+module Admin::ProductOffersHelper
+end

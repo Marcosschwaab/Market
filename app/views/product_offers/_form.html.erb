@@ -1,0 +1,26 @@
+<%= form_for(@product_offer) do |f| %>
+  <% if @product_offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_offer.errors.count, "error") %> prohibited this product_offer from being saved:</h2>
+
+      <ul>
+      <% @product_offer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+    
+	<p><%= f.label :product_id, "Produto:" %></p>
+    <p><%= f.select :product_id, @products, :prompt=>"Select..." %></p>
+  
+    <div id="cash"><p>Preço:<h2>R$<%= f.text_field :price %><%= image_tag "../images/cash.png"%></h2></p></div>
+  </p>
+<br />
+
+  <div class="actions">
+    <p><%= f.submit %></p>
+  </div>
+<br />
+<% end %>
