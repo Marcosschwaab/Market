@@ -1,10 +1,10 @@
 <h1>Lista de Produtos Com Menor Preço</h1>
 
-
-
 <% @product_offers.each do |product_offer| %>
 	  <div id="cada">
     <li><%= link_to product_offer.product.name, [:admin , product_offer] %></p>
+	 <%=link_to product_offer.product.description, [:admin , product_offer] %></p>
+	 <%=link_to product_offer.product.code, [:admin , product_offer] %></p>
     <%=link_to product_offer.user.email, [:admin , product_offer] %></p>
 <p><class id="bg_preco">R$<%= product_offer.price %></class>
 

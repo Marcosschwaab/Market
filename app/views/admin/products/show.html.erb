@@ -1,20 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Nome:</b>
   <%= @product.name %>
 </p>
 
 <p>
-  <b>Mark:</b>
+  <b>Marca:</b>
   <%= @product.mark %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Descrição:</b>
   <%= @product.description %>
 </p>
+<p>
+  <b>Gênero:</b>
+  <%= @product.gender.name %>
+</p>
+<p>
+  <b>Unidade de Medida:</b>
+  <%= @product.unit.name %>
+</p>
 
-
-<%= link_to 'Edit', edit_admin_product_path(@product) %> |
-<%= link_to 'Back', admin_products_path %>
+<%= link_to 'Editar', edit_admin_product_path(@product) %> |
+<%= link_to 'Voltar', admin_products_path %>

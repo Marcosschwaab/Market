@@ -1,8 +1,13 @@
 
 <h3>Lista de Ofertas Cadastradas
-<%= link_to 'Cadastrar Produto', new_product_offer_path %>
-</h3> 
-
+</h3>
+<% if @product_offers.size == 0 %>
+<p>Nenhum produto ofertado</p>
+<% else %>
+<p>Voce tem <%= @product_offers.size %> produto(s) cadastrados</p> 
+ 
+<% end %>
+<%= link_to image_tag('add.png'), new_product_offer_path %></p>
 
 <%- if current_user -%>
 
@@ -11,7 +16,8 @@
 
   <div id="cada">
 <%= link_to product_offer.product.name, product_offer %></p>
-<%= link_to product_offer.product.description, product_offer %>
+<%= link_to product_offer.product.description, product_offer %></p>
+<%= link_to product_offer.product.code, product_offer %>
 	<p><class id="bg_preco">R$<%= product_offer.price %></class></p>
 <p>
   <%= link_to image_tag('edit.png'), edit_product_offer_path(product_offer) %>
